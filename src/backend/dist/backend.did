@@ -1,0 +1,60 @@
+type UserId = principal;
+type UpdateResult = 
+ variant {
+   err: text;
+   ok: Student;
+ };
+type UpdateProfileInput = 
+ record {
+   address: text;
+   mobile: text;
+   name: text;
+ };
+type Timestamp = int;
+type Student = 
+ record {
+   address: text;
+   createdAt: Timestamp;
+   email: text;
+   mobile: text;
+   name: text;
+   "principal": UserId;
+   prn: text;
+ };
+type SessionToken = text;
+type RegisterResult = 
+ variant {
+   err: text;
+   ok: Student;
+ };
+type RegisterInput = 
+ record {
+   address: text;
+   email: text;
+   hashedPassword: text;
+   mobile: text;
+   name: text;
+   prn: text;
+ };
+type DeleteResult = 
+ variant {
+   err: text;
+   ok;
+ };
+type AdminLoginResult = 
+ variant {
+   err: text;
+   ok: SessionToken;
+ };
+service : {
+  adminLogin: (email: text, hashedPassword: text) -> (AdminLoginResult);
+  adminUpdateStudent: (token: SessionToken, prn: text, input:
+   UpdateProfileInput) -> (UpdateResult);
+  deleteStudent: (token: SessionToken, prn: text) -> (DeleteResult);
+  getAllStudents: (token: SessionToken, offset: nat, limit: nat) ->
+   (vec Student);
+  getMyProfile: () -> (opt Student) query;
+  registerStudent: (input: RegisterInput) -> (RegisterResult);
+  searchStudents: (token: SessionToken, searchQuery: text) -> (vec Student);
+  updateMyProfile: (input: UpdateProfileInput) -> (UpdateResult);
+}

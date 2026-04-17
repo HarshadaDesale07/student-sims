@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Plus Jakarta Sans", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: monospace;
+    --radius: 0.625rem;
+
+    --background: 0.97 0 0;
+    --foreground: 0.18 0 0;
+    --card: 1.0 0 0;
+    --card-foreground: 0.18 0 0;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.18 0 0;
+
+    --primary: 0.55 0.18 193;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.92 0 0;
+    --secondary-foreground: 0.3 0 0;
+    --muted: 0.92 0 0;
+    --muted-foreground: 0.55 0 0;
+
+    --accent: 0.6 0.22 290;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.58 0.2 27;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0 0;
+    --input: 0.9 0 0;
+    --ring: 0.55 0.18 193;
+
+    --chart-1: 0.55 0.18 193;
+    --chart-2: 0.58 0.2 27;
+    --chart-3: 0.6 0.22 290;
+    --chart-4: 0.7 0.12 142;
+    --chart-5: 0.65 0.15 165;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.18 0 0;
+    --sidebar-primary: 0.55 0.18 193;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.92 0 0;
+    --sidebar-accent-foreground: 0.3 0 0;
+    --sidebar-border: 0.88 0 0;
+    --sidebar-ring: 0.55 0.18 193;
+  }
+
+  .dark {
+    --background: 0.12 0 0;
+    --foreground: 0.93 0 0;
+    --card: 0.16 0 0;
+    --card-foreground: 0.93 0 0;
+    --popover: 0.2 0 0;
+    --popover-foreground: 0.93 0 0;
+
+    --primary: 0.65 0.22 193;
+    --primary-foreground: 0.12 0 0;
+
+    --secondary: 0.2 0 0;
+    --secondary-foreground: 0.88 0 0;
+    --muted: 0.2 0 0;
+    --muted-foreground: 0.6 0 0;
+
+    --accent: 0.7 0.25 290;
+    --accent-foreground: 0.12 0 0;
+
+    --destructive: 0.65 0.22 27;
+    --destructive-foreground: 0.12 0 0;
+
+    --border: 0.26 0 0;
+    --input: 0.26 0 0;
+    --ring: 0.65 0.22 193;
+
+    --chart-1: 0.65 0.22 193;
+    --chart-2: 0.65 0.22 27;
+    --chart-3: 0.7 0.25 290;
+    --chart-4: 0.75 0.18 142;
+    --chart-5: 0.72 0.2 165;
+
+    --sidebar: 0.16 0 0;
+    --sidebar-foreground: 0.93 0 0;
+    --sidebar-primary: 0.65 0.22 193;
+    --sidebar-primary-foreground: 0.12 0 0;
+    --sidebar-accent: 0.2 0 0;
+    --sidebar-accent-foreground: 0.88 0 0;
+    --sidebar-border: 0.26 0 0;
+    --sidebar-ring: 0.65 0.22 193;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-elevated {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .card-bordered {
+    border: 1px solid oklch(var(--border));
+  }
+
+  .form-field {
+    @apply block w-full px-3 py-2 rounded-md border border-input bg-input text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 rounded-md bg-primary text-primary-foreground font-medium hover:opacity-90 transition-smooth focus:outline-none focus:ring-2 focus:ring-ring;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-md bg-secondary text-secondary-foreground font-medium hover:opacity-90 transition-smooth focus:outline-none focus:ring-2 focus:ring-ring;
+  }
+
+  .btn-destructive {
+    @apply px-4 py-2 rounded-md bg-destructive text-destructive-foreground font-medium hover:opacity-90 transition-smooth focus:outline-none focus:ring-2 focus:ring-destructive;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "overview": "A Student Information Management System (SIMS) built on the Internet Computer. Students can register, log in via Internet Identity, and manage their profiles. Admins can view, search, edit, and delete student records from a dedicated admin panel.",
+  "features": [
+    "Student registration with PRN, name, email, mobile, address fields and full input validation",
+    "Internet Identity login for students with protected dashboard",
+    "Student profile view and update",
+    "Admin login with email/password and session management",
+    "Admin panel with paginated student list",
+    "Real-time search and filter by PRN or name",
+    "Edit and delete student records with confirmation",
+    "Clean, beginner-friendly UI with Tailwind CSS"
+  ],
+  "category": "productivity",
+  "tags": [
+    "education",
+    "student-management",
+    "admin-panel",
+    "crud",
+    "authentication",
+    "internet-identity"
+  ],
+  "last_updated": "2026-04-17T04:37:01.070Z"
+}
